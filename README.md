@@ -1,6 +1,6 @@
 # Multipath
 
-This project focuses on finding two node-disjoint paths that maximize the bandwidth (capacity) between a source and destination in a connected graph, by implementing an algorithm from scientific literature (see multipath.py).  It also provides statistical analysis using a Monte Carlo simulation.
+This project focuses on finding two node-disjoint paths that maximize the bandwidth (capacity) between a source and destination in a connected graph, by implementing an algorithm from scientific literature (see multipath.py).  It also provides statistical analysis by using a Monte Carlo simulation.
 
 
 ## Running the simulation
