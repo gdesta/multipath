@@ -1,8 +1,5 @@
-"""
+# Author: Girmaye Desta
 
-"""
-
-#! /usr/bin/python
 import sys
 
 def mlbdp (g, s, d, bw="bw"):

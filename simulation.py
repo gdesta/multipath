@@ -1,4 +1,5 @@
-#! /usr/bin/python
+# Author: Girmaye Desta
+
 import sys
 import timeit
 import random
@@ -8,12 +9,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import scipy.stats
 
-def perform_evaluation(iterations):
+def perform_simulation(iterations):
     """
-    The evaluation includes a 
+    The simulation includes a 
     - Monte Carlo simulation, 
     - Statistical analysis and 
-    - plotting a Normalized Frequecy Histogram 
+    - plotting a Normalized Frequency Histogram 
         
     Parameters:
     iterations: The number of trials for the Monte Carlo simulation
@@ -26,7 +27,7 @@ def perform_evaluation(iterations):
     start = timeit.default_timer()
     ave_tot_bw, iteration_bw = perform_montecarlo_iterations(g, iterations)
     time_taken = timeit.default_timer() - start
-    print "Algorithm Implementation took: " + str(time_taken) + " seconds" + " for " + str(iterations) + " iterations"
+    print "Simulation took: " + str(time_taken) + " seconds" + " for " + str(iterations) + " iterations"
     max_bw = max(iteration_bw.values())
     iteration_of_max_bw = max(iteration_bw, key = lambda a : iteration_bw[a])
 
@@ -103,7 +104,7 @@ def plot_histogram(iterations, iteration_bw, max_bw):
     plt.show()
     
 def main():
-    perform_evaluation(int(sys.argv[1]))
+    perform_simulation(int(sys.argv[1]))
 
 if __name__ == '__main__': 
     main()

@@ -14,8 +14,8 @@ Figure 1: A 12 node graph
 To run the simulation:
 
 ```bash
-python mlbdp_simulation [number_of_iterations]
+python simulation [number_of_iterations]
 
 #For example, to run a Monte Carlo simulation of 5000 trials, the command will be:
-python mlbdp_simulation 5000
+python simulation 5000
 ```
