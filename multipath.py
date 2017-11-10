@@ -10,7 +10,7 @@ def mlbdp (g, s, d, bw="bw"):
     M. Dahshan. Maximum-Bandwidth Node-Disjoint Paths. International Journal of Advanced Computer Science and Applications (IJACSA), 3(3), 2012.
     
     Computes two bandwidth maximizing node-disjoint paths in a graph g from source node s to destination node d,
-     and returns the bandwidth amount
+    and returns the bandwidth amount
         
     Parameters:
     g: graph on which paths are computed
@@ -32,8 +32,7 @@ def mlbdp (g, s, d, bw="bw"):
     limit_bw = 0
 
     for limit in limits:
-        print " starting iteration for LIMIT:"
-        print limit        
+        print " starting iteration for LIMIT:", limit        
         # The function mlbdp_path is called for each limit bandwidth
         (red, blue, prev_returned, is_break) = mlbdp_path(g, s, d, limit, bw)
         if not is_break:
@@ -119,7 +118,7 @@ def mlbdp_path(g, s, d, limit, bw = 'bw'):
         tentative2.remove(max_key)
         
         if max_key == (d,d):
-            print "!!!Destination reached, returning from while loop!!!!!!"
+            print "Destination reached, returning from while loop!"
             return red_bw[(d,d)], blue_bw[(d,d)], previous, is_break
         
         # Update neighbor virtual nodes of max_key
