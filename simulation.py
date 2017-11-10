@@ -24,10 +24,7 @@ def perform_simulation(iterations):
     print "==========================================================================================="
     print "Monte Carlo simulation"    
     print "Running ", iterations, " iterations.."
-    start = timeit.default_timer()
-    ave_tot_bw, iteration_bw = perform_montecarlo_iterations(g, iterations)
-    time_taken = timeit.default_timer() - start
-    print "Simulation took: " + str(time_taken) + " seconds" + " for " + str(iterations) + " iterations"
+    ave_tot_bw, iteration_bw = perform_montecarlo_simulation(g, iterations)
     max_bw = max(iteration_bw.values())
     iteration_of_max_bw = max(iteration_bw, key = lambda a : iteration_bw[a])
 
@@ -43,19 +40,20 @@ def perform_simulation(iterations):
     ci2 = scipy.stats.t.interval(0.95,len(arr)-1, loc=np.mean(arr), scale=scipy.stats.sem(arr))
     print "95% confidence interval: ", ci2
     print "==========================================================================================="
+    
     # Plot a Normalized Frequency Histogram
     plot_histogram(iterations, iteration_bw, max_bw)
 
 def create_twelve_node_graph():
     """"
-    Creates a 12 node graph
+    Creates a 12 node graph (refer to the README of this project for the diagram of the graph)
     """
     g = nx.Graph()
     g.add_nodes_from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
     g.add_edges_from([(1, 2), (1, 7), (2, 3), (2, 8), (3, 4), (3, 7), (3, 9), (4, 5), (4, 8), (4, 10), (5, 6), (5, 9), (5, 11), (6, 10), (6, 12), (7, 8), (8, 9), (9, 10), (10, 11), (11, 12)])
     return g
 
-def perform_montecarlo_iterations(g, iterations):
+def perform_montecarlo_simulation(g, iterations):
     """"
     Perform Monte Carlo simulation: Run algorithm (in this case MLBDP algorithm is run) for multiple trials, 
     where bandwidth values of graph edges is picked randomly from a distribution for each iteration
